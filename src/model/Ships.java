@@ -1,6 +1,17 @@
 package model;
 
 public abstract class Ships {
+    
+    private String shipName;
+    private ShipType shipType;
+    private int[] shipCoordinates;
+
+    public Ships(String shipName, ShipType shipType, int[] shipCoordinates) {
+        this.shipName = shipName;
+        this.shipType = shipType;
+        this.shipCoordinates = new int[2];
+    }
+
     public String getShipName() {
         return shipName;
     }
@@ -25,13 +36,4 @@ public abstract class Ships {
         this.shipCoordinates = shipCoordinates;
     }
 
-    private String shipName;
-    private ShipType shipType;
-    private int[] shipCoordinates;
-
-    public Ships(String shipName, ShipType shipType, int[] shipCoordinates) {
-        this.shipName = shipName;
-        this.shipType = shipType;
-        this.shipCoordinates = new int[2];
-    }
 }
