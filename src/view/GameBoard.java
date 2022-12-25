@@ -40,7 +40,7 @@ public class GameBoard extends JPanel{
         //Creates the panel for the shipsButtons
         btnsPanel = new JPanel();
         //Creates the 10x10 gridlayout for buttons
-        btnsPanel.setLayout(new GridLayout(10,10,-8,-8));
+        btnsPanel.setLayout(new GridLayout(10,10,-9,-9));
 
         btnsPanel.setSize(width-100, height-100);
         btnsPanel.setLocation(20, 23);
