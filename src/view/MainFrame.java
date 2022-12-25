@@ -20,4 +20,8 @@ public class MainFrame extends JFrame {
         this.setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
+    public void buttonPressed(int i) {
+        controller.buttonPressed(i);
+    }
 }

@@ -14,4 +14,8 @@ public class Controller {
         //view.disableAddMenuButton();
         //view.disableViewSelectedOrderButton();
     }
+
+    public void buttonPressed(int i) {
+        
+    }
 }

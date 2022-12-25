@@ -30,7 +30,7 @@ public class ScoreBoard extends JPanel{
 
         scoreBoardList = new JList<>();
         scoreBoardList.setLocation(0, 23);
-        scoreBoardList.setSize(width, height - 100);
+        scoreBoardList.setSize(width - 100, height -100);
         this.add(scoreBoardList);
     }
 
