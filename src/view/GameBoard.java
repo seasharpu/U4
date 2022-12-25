@@ -31,19 +31,19 @@ public class GameBoard extends JPanel{
 
         //creates the label of amount clicks
         titleTotalClicks = new JLabel("Clicks: ");
-        titleTotalClicks.setLocation(20, 430);
+        titleTotalClicks.setLocation(20, 435);
         titleTotalClicks.setSize(width/2, 20);
         this.add(titleTotalClicks);
 
         titleShipSunk = new JLabel("Ships sunk: ");
-        titleShipSunk.setLocation(140, 430);
+        titleShipSunk.setLocation(140, 435);
         titleShipSunk.setSize(width/2, 20);
         this.add(titleShipSunk);
 
  
         //Creates the panel for the shipsButtons
         btnsPanel = new JPanel();
-
+        //Creates the 10x10 gridlayout for buttons
         btnsPanel.setLayout(new GridLayout(10,10));
 
         btnsPanel.setSize(width-100, height-100);
