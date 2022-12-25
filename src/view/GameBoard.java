@@ -2,10 +2,7 @@ package view;
 
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class GameBoard extends JPanel{
     private int width;
@@ -44,10 +41,11 @@ public class GameBoard extends JPanel{
         //Creates the panel for the shipsButtons
         btnsPanel = new JPanel();
         //Creates the 10x10 gridlayout for buttons
-        btnsPanel.setLayout(new GridLayout(10,10));
+        btnsPanel.setLayout(new GridLayout(10,10,-8,-8));
 
         btnsPanel.setSize(width-100, height-100);
         btnsPanel.setLocation(20, 23);
+        btnsPanel.setBackground(Color.black);
         this.add(btnsPanel);
 
 
@@ -55,11 +53,14 @@ public class GameBoard extends JPanel{
             JButton btn;
         
             btn = new JButton();
+            btn.setActionCommand(Integer.toString(i));
             btn.setEnabled(true);
-            btn.setSize(0, 0);
-            //btn.setLocation(20, 23);
-            //btn.addActionListener(l -> mainFrame.buttonPressed(i));
-            //this.add(btn);
+
+            //Set JButton font using new created font
+            Font newButtonFont = new Font(btn.getFont().getName(),btn.getFont().getStyle(),27);
+            btn.setFont(newButtonFont);
+
+            btn.addActionListener(l -> mainFrame.buttonPressed(btn));
             btnsPanel.add(btn);
         }
     }

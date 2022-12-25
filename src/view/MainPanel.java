@@ -13,7 +13,7 @@ public class MainPanel extends JPanel{
         gameBoard = new GameBoard(width / 2 +60, height, mainFrame);
         add(gameBoard);
 
-        scoreBoard = new ScoreBoard(width / 2 +70, height, mainFrame);
+        scoreBoard = new ScoreBoard(width / 2 +60, height, mainFrame);
         add(scoreBoard);
     }
 
@@ -23,5 +23,9 @@ public class MainPanel extends JPanel{
 
     protected ScoreBoard getScoreBoard() {
         return scoreBoard;
+    }
+
+    public void setClicks(String newText){
+        gameBoard.setAmountClicks(newText);
     }
 }

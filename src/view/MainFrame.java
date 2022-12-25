@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import controller.Controller;
@@ -21,7 +22,15 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void buttonPressed(int i) {
-        controller.buttonPressed(i);
+    public void buttonPressed(JButton btn) {
+        controller.buttonPressed(btn);
+    }
+
+    public void setClicks(String newText){
+        mainPanel.getGameBoard().setAmountClicks(newText);
+    }
+
+    public void setSunkShips(String newText){
+        mainPanel.getGameBoard().setAmountShipSunk(newText);
     }
 }
