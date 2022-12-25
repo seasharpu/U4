@@ -2,7 +2,6 @@ package view;
 
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 
 public class GameBoard extends JPanel{
     private int width;
@@ -59,6 +58,8 @@ public class GameBoard extends JPanel{
             //Set JButton font using new created font
             Font newButtonFont = new Font(btn.getFont().getName(),btn.getFont().getStyle(),27);
             btn.setFont(newButtonFont);
+
+            //btn.setBorder(BorderFactory.createBevelBorder(1, Color.red, Color.blue));
 
             btn.addActionListener(l -> mainFrame.buttonPressed(btn));
             btnsPanel.add(btn);
