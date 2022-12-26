@@ -20,7 +20,7 @@ public class ScoreBoard extends JPanel{
         this.width = width;
         this.height = height;
         this.setSize(width, height);
-        setLocation(width, 0);
+        setLocation(width, 15);
         setUp();
     }
 
@@ -33,7 +33,7 @@ public class ScoreBoard extends JPanel{
         scoreBoardList = new JList<>();
         scoreBoardList.setBackground(Color.DARK_GRAY);
         scoreBoardList.setLocation(-40, 23);
-        scoreBoardList.setSize(width - 100, height -100);
+        scoreBoardList.setSize(width - 100, height);
         this.add(scoreBoardList);
     }
 

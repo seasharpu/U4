@@ -19,19 +19,19 @@ public class GameInformation extends JPanel{
         this.width = width;
         this.height = height;
         this.setSize(width, height);
-        setLocation(width, 250);
+        setLocation(width, 220);
         setUp();
     }
     private void setUp() {
         lblTitle = new JLabel("Game Information");
-        lblTitle.setLocation(230, 260);
+        lblTitle.setLocation(210, 0);
         lblTitle.setSize((width / 2)-100, 20);
         this.add(lblTitle);
 
         gameInformationList = new JList<>();
         gameInformationList.setBackground(Color.DARK_GRAY);
-        gameInformationList.setLocation(-40, 283);
-        gameInformationList.setSize(width - 100, height -100);
+        gameInformationList.setLocation(-40, 23);
+        gameInformationList.setSize(width - 100, height);
         this.add(gameInformationList);
     }
 

@@ -33,13 +33,13 @@ public class GameBoard extends JPanel{
         this.add(titlePlayerName);
 
         titleShipSunk = new JLabel("Ships sunk: ");
-        titleShipSunk.setLocation(200, 435);
+        titleShipSunk.setLocation(250, 435);
         titleShipSunk.setSize(width/2, 20);
         this.add(titleShipSunk);
 
         //creates the label for amount clicks
         titleTotalClicks = new JLabel("Clicks: ");
-        titleTotalClicks.setLocation(360, 435);
+        titleTotalClicks.setLocation(515, 435);
         titleTotalClicks.setSize(width/2, 20);
         this.add(titleTotalClicks);
 
