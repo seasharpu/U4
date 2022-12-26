@@ -10,6 +10,7 @@ public class GameBoard extends JPanel{
     private MainFrame mainFrame;
     private JPanel btnsPanel;
 
+    private JLabel titlePlayerName;
     private JLabel titleTotalClicks;
     private JLabel titleShipSunk;
 
@@ -25,16 +26,22 @@ public class GameBoard extends JPanel{
 
     private void setUp() {
 
-        //creates the label of amount clicks
-        titleTotalClicks = new JLabel("Clicks: ");
-        titleTotalClicks.setLocation(20, 435);
-        titleTotalClicks.setSize(width/2, 20);
-        this.add(titleTotalClicks);
+        //creates the label for player name 
+        titlePlayerName = new JLabel("Player: Unknown");
+        titlePlayerName.setLocation(20, 435);
+        titlePlayerName.setSize(width/2, 20);
+        this.add(titlePlayerName);
 
         titleShipSunk = new JLabel("Ships sunk: ");
-        titleShipSunk.setLocation(140, 435);
+        titleShipSunk.setLocation(200, 435);
         titleShipSunk.setSize(width/2, 20);
         this.add(titleShipSunk);
+
+        //creates the label for amount clicks
+        titleTotalClicks = new JLabel("Clicks: ");
+        titleTotalClicks.setLocation(360, 435);
+        titleTotalClicks.setSize(width/2, 20);
+        this.add(titleTotalClicks);
 
  
         //Creates the panel for the shipsButtons

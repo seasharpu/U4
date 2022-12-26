@@ -1,10 +1,14 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JPanel;
 
 public class MainPanel extends JPanel{
     private GameBoard gameBoard;
     private ScoreBoard scoreBoard;
+    private GameInformation gameInformation;
 
     public MainPanel(int width, int height, MainFrame mainFrame) {
         super(null);
@@ -13,8 +17,11 @@ public class MainPanel extends JPanel{
         gameBoard = new GameBoard(width / 2 +60, height, mainFrame);
         add(gameBoard);
 
-        scoreBoard = new ScoreBoard(width / 2 +60, height, mainFrame);
+        scoreBoard = new ScoreBoard(width / 2 +60, height/2, mainFrame);
         add(scoreBoard);
+
+        gameInformation = new GameInformation(width / 2 +60, height/2, mainFrame);
+        add(gameInformation);
     }
 
     protected GameBoard getGameBoard() {
