@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Color;
+
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -18,19 +20,20 @@ public class ScoreBoard extends JPanel{
         this.width = width;
         this.height = height;
         this.setSize(width, height);
-        setLocation(width, 0);
+        setLocation(width, 15);
         setUp();
     }
 
     private void setUp() {
         lblTitle = new JLabel("Scoreboard");
-        lblTitle.setLocation(240, 0);
+        lblTitle.setLocation(230, 0);
         lblTitle.setSize((width / 2)-100, 20);
         this.add(lblTitle);
 
         scoreBoardList = new JList<>();
-        scoreBoardList.setLocation(0, 23);
-        scoreBoardList.setSize(width - 100, height -100);
+        scoreBoardList.setBackground(Color.DARK_GRAY);
+        scoreBoardList.setLocation(-40, 23);
+        scoreBoardList.setSize(width - 100, height);
         this.add(scoreBoardList);
     }
 
