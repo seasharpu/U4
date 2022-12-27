@@ -5,6 +5,7 @@ import javax.swing.JButton;
 
 import model.Cruiser;
 import model.ShipType;
+import model.Submarine;
 import view.GameBoard;
 import view.MainFrame;
 import view.MainPanel;
@@ -14,9 +15,23 @@ public class Controller {
     private MainFrame view;
     private int clicks;
     
-      public Controller(String nameOfThePlayer) {
+      public Controller(String nameOfThePlayer, int chosenGameBoard) {
         view = new MainFrame(1200, 500, this);
         view.setPlayerName(nameOfThePlayer);
+        setUpShips(chosenGameBoard);
+    }
+
+    private void setUpShips(int chosenGameBoard) {
+      if(chosenGameBoard == 1){
+        int submarineCordinates[]  = {1, 11, 21};
+        
+        Submarine submarine = new Submarine("Shark", ShipType.Submarine, submarineCordinates);
+        
+      }
+
+      if(chosenGameBoard == 2){
+
+      }
     }
 
     public void buttonPressed(JButton btn) {

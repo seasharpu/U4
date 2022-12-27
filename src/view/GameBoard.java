@@ -61,6 +61,7 @@ public class GameBoard extends JPanel{
             btn = new JButton();
             btn.setActionCommand(Integer.toString(i));
             btn.setEnabled(true);
+          //  btn.setForeground(Color.DARK_GRAY);
 
             //Set JButton font using new created font
             Font newButtonFont = new Font(btn.getFont().getName(),btn.getFont().getStyle(),27);
