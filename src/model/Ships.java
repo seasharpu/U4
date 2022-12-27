@@ -4,6 +4,7 @@ public abstract class Ships extends GameManager{
     private String shipName;
     private ShipType shipType;
     private int[] shipCoordinates;
+    private boolean shipDestroyed = false;
 
     public Ships(String shipName, ShipType shipType, int[] shipCoordinates) {
         this.shipName = shipName;
@@ -33,6 +34,30 @@ public abstract class Ships extends GameManager{
 
     public void setShipCoordinates(int[] shipCoordinates) {
         this.shipCoordinates = shipCoordinates;
+    }
+
+    public void removeFromShipCoordinates(int btnNumber){
+        int[] copyArray = new int[shipCoordinates.length-1];
+
+        if(copyArray.length == 0){
+            setShipDestroyed(true);
+        }
+
+        for (int i = 0; i<copyArray.length; i++){
+            if(shipCoordinates[i] != btnNumber){
+                copyArray[i] = shipCoordinates[i];
+            }
+        }
+
+        shipCoordinates = copyArray;
+    }
+
+    public Boolean getShipDestroyed() {
+        return shipDestroyed;
+    }
+
+    public void setShipDestroyed(boolean shipDestroyed) {
+        this.shipDestroyed = shipDestroyed;
     }
 
     @Override

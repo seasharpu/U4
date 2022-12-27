@@ -2,6 +2,7 @@ package model;
 
 public class GameManager {
     private Ships[] ships = new Ships[10];
+    private Ships[] shipsDestroyed = new Ships[10];
 
     public GameManager(){
 
@@ -61,25 +62,39 @@ public class GameManager {
         }
     }
 
-    public boolean checkIfButtonNumberIsInArrayBoard(int btnNumber){
+    public boolean checkIfButtonNumberIsInShipsArray(int btnNumber){
         boolean btnNumberisInArray = false;
 
-        for (int i = 0; i < ships.length; i++) {
+        for (Ships ship : ships) {
+            if(ship != null){
+                int [] coordinates = ship.getShipCoordinates();
 
-            if(ships[i] != null){
-
-                int[] cordinates = ships[i].getShipCoordinates();
-                
-                for (int j = 0; j < cordinates.length; j++) {
-                    if(cordinates[i] == btnNumber){
+                for (int i : coordinates) {
+                    if(i == btnNumber){
                         btnNumberisInArray = true;
+                        ship.removeFromShipCoordinates(btnNumber);
+
+                        //Checks if all part of the ship is destroyed
+                        if(ship.getShipDestroyed() == true){
+                            for (int j = 0; j < shipsDestroyed.length; j++) {
+                                if(shipsDestroyed[j] == null){
+                                    shipsDestroyed[j] = ship;
+                                    break;
+                                }
+                            }
+                        }
+
+                        break;
                     }
                 }
             }
-            
         }
 
         return btnNumberisInArray;
+    }
+
+    public Ships[] getShipsDestroyed() {
+        return shipsDestroyed;
     }
 
 }

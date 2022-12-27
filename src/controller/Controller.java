@@ -17,6 +17,8 @@ import model.Battleship;
 public class Controller {
     private MainFrame view;
     private int clicks;
+    private int amountDestroyedShips;
+
     private GameManager gameManager = new GameManager();
   
     public Controller(String nameOfThePlayer, int chosenGameBoard) {
@@ -27,7 +29,7 @@ public class Controller {
 
     private void setUpShips(int chosenGameBoard) {
       if(chosenGameBoard == 1){
-        int battleShipCordinates[] = {88}; 
+        int battleShipCordinates[] = {92}; 
         int torpedoCordinates[]  = {77, 78};
         int submarineCordinates[]  = {1, 11, 21};
         int cruiserCordinates[]  = {7, 8, 9, 10};
@@ -59,28 +61,31 @@ public class Controller {
     public void buttonPressed(JButton btn) {
         btn.setEnabled(false);
         int btnNumber = Integer.parseInt(btn.getActionCommand());
-        System.out.println(btnNumber);
 
+        //Checks if the clicked buttons number is in ships array      
+        if(gameManager.checkIfButtonNumberIsInShipsArray(btnNumber) == true){
+          //If a ship-part got hit
+          btn.setVisible(false);
 
-        //For testing the buttons        
-        if(isShipGetHit(btnNumber) == false){
-          //If a ship-part missed
-          btn.setText("X");
+          //Gets ships destroyed
+          Ships[] shipsDestroyed = gameManager.getShipsDestroyed();
+          for (int i = 0; i < shipsDestroyed.length; i++) {
+         
+            if(shipsDestroyed[i] == null){
+              amountDestroyedShips = i+1;
+              break;
+            }
+          }
         }
         else{
-          //If a ship-part located
-          btn.setVisible(false);
+          //If a ship-part missed
+          btn.setText("X");
         }
 
         //Updates the clicks variable and mainFrame
         clicks++;
         view.setClicks("Clicks: " + String.valueOf(clicks));
-
-        //view.setSunkShips("Ship sunk: " + String.valueOf(clicks));
+        view.setSunkShips("Ship sunk: " + String.valueOf(amountDestroyedShips));
     }
 
-    private Boolean isShipGetHit(int actionCommand) {
-    
-      return gameManager.checkIfButtonNumberIsInArrayBoard(actionCommand);
-    }
 }
