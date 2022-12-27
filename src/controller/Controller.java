@@ -16,8 +16,8 @@ import model.Battleship;
 
 public class Controller {
     private MainFrame view;
-    private int clicks;
-    private int amountDestroyedShips;
+    private int clicks = 0;
+    private int amountDestroyedShips = 0;
 
     private GameManager gameManager = new GameManager();
   
@@ -30,10 +30,10 @@ public class Controller {
     private void setUpShips(int chosenGameBoard) {
       if(chosenGameBoard == 1){
         int battleShipCordinates[] = {92}; 
-        int torpedoCordinates[]  = {77, 78};
-        int submarineCordinates[]  = {1, 11, 21};
-        int cruiserCordinates[]  = {7, 8, 9, 10};
-        int destroyerCordinates[]  = {54, 55, 56,57,58};
+        int torpedoCordinates[]  = {77,78};
+        int submarineCordinates[]  = {1,11,21};
+        int cruiserCordinates[]  = {7,8,9,10};
+        int destroyerCordinates[]  = {54,55,56,57,58};
 
         gameManager.addBattleShip("Leon", ShipType.Battleship, battleShipCordinates);
         gameManager.addTorpedoBoat("Eagle", ShipType.TorpedoBoat, torpedoCordinates);
@@ -44,10 +44,10 @@ public class Controller {
 
       if(chosenGameBoard == 2){
         int battleShipCordinates[] = {70}; 
-        int torpedoCordinates[]  = {88, 89, 90, 91};
-        int submarineCordinates[]  = {34, 44, 54};
+        int destroyerCordinates[]  = {28,29};
+        int submarineCordinates[]  = {34,44,54};
+        int torpedoCordinates[]  = {88,89,90,91};
         int cruiserCordinates[]  = {21,31,41,51,61};
-        int destroyerCordinates[]  = {28, 29};
 
         gameManager.addBattleShip("Leon", ShipType.Battleship, battleShipCordinates);
         gameManager.addTorpedoBoat("Eagle", ShipType.TorpedoBoat, torpedoCordinates);

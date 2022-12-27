@@ -42,10 +42,11 @@ public abstract class Ships extends GameManager{
         if(copyArray.length == 0){
             setShipDestroyed(true);
         }
-
-        for (int i = 0; i<copyArray.length; i++){
-            if(shipCoordinates[i] != btnNumber){
-                copyArray[i] = shipCoordinates[i];
+        else{
+            for (int i = 0; i<copyArray.length; i++){
+                if(shipCoordinates[i] != btnNumber){
+                    copyArray[i] = shipCoordinates[i];
+                }
             }
         }
 
