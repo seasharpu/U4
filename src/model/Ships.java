@@ -1,7 +1,7 @@
 package model;
 
-public abstract class Ships {
-    
+public abstract class Ships{
+    GameManager gameManager = new GameManager();
     private String shipName;
     private ShipType shipType;
     private int[] shipCoordinates;
@@ -9,7 +9,8 @@ public abstract class Ships {
     public Ships(String shipName, ShipType shipType, int[] shipCoordinates) {
         this.shipName = shipName;
         this.shipType = shipType;
-        this.shipCoordinates = new int[2];
+        this.shipCoordinates = shipCoordinates;
+        gameManager.addToShipsArray(this);
     }
 
     public String getShipName() {

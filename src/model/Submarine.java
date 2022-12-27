@@ -11,6 +11,7 @@ public class Submarine extends Ships{
         this.shipType = shipType;
         this.cordinates = shipCoordinates;
     }
+    
     @Override
     public String toString() {
         return "Shipname: " + shipName + " Shiptype: " + shipType;
