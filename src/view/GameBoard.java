@@ -73,6 +73,9 @@ public class GameBoard extends JPanel{
         }
     }
 
+    protected void setPlayerName(String playerName){
+        titlePlayerName.setText( "Player: " + playerName);
+    }
 
     protected void setAmountClicks(String labelText){
         titleTotalClicks.setText(labelText);

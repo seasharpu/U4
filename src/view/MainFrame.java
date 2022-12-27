@@ -26,6 +26,10 @@ public class MainFrame extends JFrame {
         controller.buttonPressed(btn);
     }
 
+    public void setPlayerName(String playerName){
+        mainPanel.getGameBoard().setPlayerName(playerName);
+    }
+
     public void setClicks(String newText){
         mainPanel.getGameBoard().setAmountClicks(newText);
     }

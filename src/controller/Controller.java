@@ -14,8 +14,9 @@ public class Controller {
     private MainFrame view;
     private int clicks;
     
-      public Controller() {
+      public Controller(String nameOfThePlayer) {
         view = new MainFrame(1200, 500, this);
+        view.setPlayerName(nameOfThePlayer);
     }
 
     public void buttonPressed(JButton btn) {
