@@ -17,7 +17,7 @@ import model.Battleship;
 public class Controller {
     private MainFrame view;
     private int clicks;
-    GameManager gameManager = new GameManager();
+    private GameManager gameManager = new GameManager();
   
     public Controller(String nameOfThePlayer, int chosenGameBoard) {
       view = new MainFrame(1200, 500, this);
@@ -33,17 +33,11 @@ public class Controller {
         int cruiserCordinates[]  = {7, 8, 9, 10};
         int destroyerCordinates[]  = {54, 55, 56,57,58};
 
-        Battleship battleship = new Battleship("Leon", ShipType.Battleship, battleShipCordinates);
-        TorpedoBoat torpedoBoat = new TorpedoBoat("Eagle", ShipType.TorpedoBoat, torpedoCordinates);
-        Submarine submarine = new Submarine("Shark", ShipType.Submarine, submarineCordinates);
-        Cruiser cruiser = new Cruiser("Black Pearl", ShipType.Cruiser, cruiserCordinates);
-        Destroyer destroyer = new Destroyer("Titanic", ShipType.Destroyer, destroyerCordinates);
-
-        new GameManager(destroyer);
-        new GameManager(submarine);
-        new GameManager(cruiser);
-        new GameManager(battleship);
-        new GameManager(torpedoBoat);
+        gameManager.addBattleShip("Leon", ShipType.Battleship, battleShipCordinates);
+        gameManager.addTorpedoBoat("Eagle", ShipType.TorpedoBoat, torpedoCordinates);
+        gameManager.addSubmarine("Shark", ShipType.Submarine, submarineCordinates);
+        gameManager.addCruiser("Black Pearl", ShipType.Cruiser, cruiserCordinates);
+        gameManager.addDestroyer("Titanic", ShipType.Destroyer, destroyerCordinates);
       }
 
       if(chosenGameBoard == 2){
@@ -53,17 +47,11 @@ public class Controller {
         int cruiserCordinates[]  = {21,31,41,51,61};
         int destroyerCordinates[]  = {28, 29};
 
-        Battleship battleship = new Battleship("Leon", ShipType.Battleship, battleShipCordinates);
-        TorpedoBoat torpedoBoat = new TorpedoBoat("Eagle", ShipType.TorpedoBoat, torpedoCordinates);
-        Submarine submarine = new Submarine("Shark", ShipType.Submarine, submarineCordinates);
-        Cruiser cruiser = new Cruiser("Black Pearl", ShipType.Cruiser, cruiserCordinates);
-        Destroyer destroyer = new Destroyer("Titanic", ShipType.Destroyer, destroyerCordinates);
-       
-        new GameManager(destroyer);
-        new GameManager(submarine);
-        new GameManager(cruiser);
-        new GameManager(battleship);
-        new GameManager(torpedoBoat);
+        gameManager.addBattleShip("Leon", ShipType.Battleship, battleShipCordinates);
+        gameManager.addTorpedoBoat("Eagle", ShipType.TorpedoBoat, torpedoCordinates);
+        gameManager.addSubmarine("Shark", ShipType.Submarine, submarineCordinates);
+        gameManager.addCruiser("Black Pearl", ShipType.Cruiser, cruiserCordinates);
+        gameManager.addDestroyer("Titanic", ShipType.Destroyer, destroyerCordinates);
       }
 
     }

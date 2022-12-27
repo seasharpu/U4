@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Ships{
+public abstract class Ships extends GameManager{
     private String shipName;
     private ShipType shipType;
     private int[] shipCoordinates;

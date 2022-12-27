@@ -1,59 +1,82 @@
 package model;
 
 public class GameManager {
-    private Ships[] arrayBoard = new Ships[10];
+    private Ships[] ships = new Ships[10];
 
     public GameManager(){
 
     }
 
-    public GameManager(Ships newShip) {
-        for (int i = 0; i < arrayBoard.length; i++) {
-            if(arrayBoard[i] == null){
-                arrayBoard[i] = newShip;
-                System.out.println(arrayBoard[i]);
-                break;
-            }
-        }
-    }
-
     public Ships[] getArrayBoard() {
-        return arrayBoard;
+        return ships;
     }
 
     public void setArrayBoard(Ships[] arrayBoard) {
-        this.arrayBoard = arrayBoard;
+        this.ships = arrayBoard;
     }
 
-/* 
-    public void addToShipsArray(Ships shipp){
-        for (Ships ship : arrayBoard) {
-            if(ship == null){
-                ship = shipp;
+
+    public void addDestroyer(String shipName, ShipType shipType, int[] shipCoordinates){
+        for (int i = 0; i < ships.length; i++) {
+            if(ships[i] == null){
+                ships[i] = new Destroyer(shipName, shipType, shipCoordinates);
                 break;
             }
-        }        
+        }
     }
-*/
+
+    public void addBattleShip(String shipName, ShipType shipType, int[] shipCoordinates){
+        for (int i = 0; i < ships.length; i++) {
+            if(ships[i] == null){
+                ships[i] = new Battleship(shipName, shipType, shipCoordinates);
+                break;
+            }
+        }
+    }
+
+    public void addCruiser(String shipName, ShipType shipType, int[] shipCoordinates){
+        for (int i = 0; i < ships.length; i++) {
+            if(ships[i] == null){
+                ships[i] = new Cruiser(shipName, shipType, shipCoordinates);
+                break;
+            }
+        }
+    }
+
+    public void addSubmarine(String shipName, ShipType shipType, int[] shipCoordinates){
+        for (int i = 0; i < ships.length; i++) {
+            if(ships[i] == null){
+                ships[i] = new Submarine(shipName, shipType, shipCoordinates);
+                break;
+            }
+        }
+    }
+
+    public void addTorpedoBoat(String shipName, ShipType shipType, int[] shipCoordinates){
+        for (int i = 0; i < ships.length; i++) {
+            if(ships[i] == null){
+                ships[i] = new TorpedoBoat(shipName, shipType, shipCoordinates);
+                break;
+            }
+        }
+    }
+
     public boolean checkIfButtonNumberIsInArrayBoard(int btnNumber){
         boolean btnNumberisInArray = false;
 
-        for (int i = 0; i < arrayBoard.length; i++) {
+        for (int i = 0; i < ships.length; i++) {
 
-            System.out.println(arrayBoard[i]);
-            
-        }
+            if(ships[i] != null){
 
-        for (Ships ship : arrayBoard) {
-     
-/* 
-            for (int cordinates : ship.getShipCoordinates()) {
-                if(cordinates == btnNumber){
-                    btnNumberisInArray = true;
+                int[] cordinates = ships[i].getShipCoordinates();
+                
+                for (int j = 0; j < cordinates.length; j++) {
+                    if(cordinates[i] == btnNumber){
+                        btnNumberisInArray = true;
+                    }
                 }
             }
-*/
-
+            
         }
 
         return btnNumberisInArray;
