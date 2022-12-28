@@ -69,11 +69,17 @@ public class GameManager {
             if(ship != null){
                 int [] coordinates = ship.getShipCoordinates();
 
-                for (int i : coordinates) {
-                    if(i == btnNumber){
+                for (int i = 0; i < coordinates.length; i++) {
+                    if(coordinates[i] == btnNumber){
                         btnNumberisInArray = true;
-                        ship.removeFromShipCoordinates(btnNumber);
+                        coordinates[i] = 0;
+                        
+                        ship.setShipCoordinates(coordinates);
 
+                        if(ship.isShipCoordinatesEmpty() == true){
+                            ship.setShipDestroyed(true);
+                        }
+                        
                         //Checks if all part of the ship is destroyed
                         if(ship.getShipDestroyed() == true){
                             for (int j = 0; j < shipsDestroyed.length; j++) {
@@ -87,6 +93,7 @@ public class GameManager {
                         break;
                     }
                 }
+
             }
         }
 

@@ -46,7 +46,7 @@ public class Controller {
         int battleShipCordinates[] = {70}; 
         int destroyerCordinates[]  = {28,29};
         int submarineCordinates[]  = {34,44,54};
-        int torpedoCordinates[]  = {88,89,90,91};
+        int torpedoCordinates[]  = {87,88,89,90};
         int cruiserCordinates[]  = {21,31,41,51,61};
 
         gameManager.addBattleShip("Leon", ShipType.Battleship, battleShipCordinates);
@@ -67,15 +67,16 @@ public class Controller {
           //If a ship-part got hit
           btn.setVisible(false);
 
+          int amountDestroyed = 0;
           //Gets ships destroyed
           Ships[] shipsDestroyed = gameManager.getShipsDestroyed();
           for (int i = 0; i < shipsDestroyed.length; i++) {
-         
-            if(shipsDestroyed[i] == null){
-              amountDestroyedShips = i+1;
-              break;
+            if(shipsDestroyed[i] != null){
+              amountDestroyed++;
             }
           }
+
+          amountDestroyedShips = amountDestroyed;
         }
         else{
           //If a ship-part missed

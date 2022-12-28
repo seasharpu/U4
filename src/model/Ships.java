@@ -36,21 +36,19 @@ public abstract class Ships extends GameManager{
         this.shipCoordinates = shipCoordinates;
     }
 
-    public void removeFromShipCoordinates(int btnNumber){
-        int[] copyArray = new int[shipCoordinates.length-1];
+ 
+    //Checks if shipCoordinates content
+    public boolean isShipCoordinatesEmpty(){
+        boolean empty = true;
 
-        if(copyArray.length == 0){
-            setShipDestroyed(true);
-        }
-        else{
-            for (int i = 0; i<copyArray.length; i++){
-                if(shipCoordinates[i] != btnNumber){
-                    copyArray[i] = shipCoordinates[i];
-                }
+        for (int i = 0; i < shipCoordinates.length; i++) {
+            if(shipCoordinates[i] != 0){
+                empty = false;
+                break;
             }
         }
 
-        shipCoordinates = copyArray;
+        return empty;
     }
 
     public Boolean getShipDestroyed() {
