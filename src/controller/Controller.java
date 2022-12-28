@@ -2,17 +2,11 @@ package controller;
 import javax.swing.JButton;
 
 import view.MainFrame;
-import view.MainPanel;
 import model.GameManager;
 import view.GameBoard;
 import view.ScoreBoard;
 import model.ShipType;
 import model.Ships;
-import model.Submarine;
-import model.Cruiser;
-import model.TorpedoBoat;
-import model.Destroyer;
-import model.Battleship;
 
 public class Controller {
     private MainFrame view;
