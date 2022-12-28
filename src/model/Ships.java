@@ -1,15 +1,15 @@
 package model;
 
-public abstract class Ships {
-    
+public abstract class Ships extends GameManager{
     private String shipName;
     private ShipType shipType;
     private int[] shipCoordinates;
+    private boolean shipDestroyed = false;
 
     public Ships(String shipName, ShipType shipType, int[] shipCoordinates) {
         this.shipName = shipName;
         this.shipType = shipType;
-        this.shipCoordinates = new int[2];
+        this.shipCoordinates = shipCoordinates;
     }
 
     public String getShipName() {
@@ -36,4 +36,31 @@ public abstract class Ships {
         this.shipCoordinates = shipCoordinates;
     }
 
+ 
+    //Checks if shipCoordinates content
+    public boolean isShipCoordinatesEmpty(){
+        boolean empty = true;
+
+        for (int i = 0; i < shipCoordinates.length; i++) {
+            if(shipCoordinates[i] != 0){
+                empty = false;
+                break;
+            }
+        }
+
+        return empty;
+    }
+
+    public Boolean getShipDestroyed() {
+        return shipDestroyed;
+    }
+
+    public void setShipDestroyed(boolean shipDestroyed) {
+        this.shipDestroyed = shipDestroyed;
+    }
+
+    @Override
+    public String toString() {
+        return "Ship: " + shipName + " ShipType: " + shipType;
+    }
 }

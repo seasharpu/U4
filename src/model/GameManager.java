@@ -1,20 +1,107 @@
 package model;
 
 public class GameManager {
-    private Ships[] arrayBoard;
+    private Ships[] ships = new Ships[10];
+    private Ships[] shipsDestroyed = new Ships[10];
 
-    public GameManager(Ships[] arrayBoard) {
-        this.arrayBoard = arrayBoard;
+    public GameManager(){
+
     }
 
     public Ships[] getArrayBoard() {
-        return arrayBoard;
+        return ships;
     }
 
     public void setArrayBoard(Ships[] arrayBoard) {
-        this.arrayBoard = arrayBoard;
+        this.ships = arrayBoard;
     }
 
 
+    public void addDestroyer(String shipName, ShipType shipType, int[] shipCoordinates){
+        for (int i = 0; i < ships.length; i++) {
+            if(ships[i] == null){
+                ships[i] = new Destroyer(shipName, shipType, shipCoordinates);
+                break;
+            }
+        }
+    }
+
+    public void addBattleShip(String shipName, ShipType shipType, int[] shipCoordinates){
+        for (int i = 0; i < ships.length; i++) {
+            if(ships[i] == null){
+                ships[i] = new Battleship(shipName, shipType, shipCoordinates);
+                break;
+            }
+        }
+    }
+
+    public void addCruiser(String shipName, ShipType shipType, int[] shipCoordinates){
+        for (int i = 0; i < ships.length; i++) {
+            if(ships[i] == null){
+                ships[i] = new Cruiser(shipName, shipType, shipCoordinates);
+                break;
+            }
+        }
+    }
+
+    public void addSubmarine(String shipName, ShipType shipType, int[] shipCoordinates){
+        for (int i = 0; i < ships.length; i++) {
+            if(ships[i] == null){
+                ships[i] = new Submarine(shipName, shipType, shipCoordinates);
+                break;
+            }
+        }
+    }
+
+    public void addTorpedoBoat(String shipName, ShipType shipType, int[] shipCoordinates){
+        for (int i = 0; i < ships.length; i++) {
+            if(ships[i] == null){
+                ships[i] = new TorpedoBoat(shipName, shipType, shipCoordinates);
+                break;
+            }
+        }
+    }
+
+    public boolean checkIfButtonNumberIsInShipsArray(int btnNumber){
+        boolean btnNumberisInArray = false;
+
+        for (Ships ship : ships) {
+            if(ship != null){
+                int [] coordinates = ship.getShipCoordinates();
+
+                for (int i = 0; i < coordinates.length; i++) {
+                    if(coordinates[i] == btnNumber){
+                        btnNumberisInArray = true;
+                        coordinates[i] = 0;
+                        
+                        ship.setShipCoordinates(coordinates);
+
+                        if(ship.isShipCoordinatesEmpty() == true){
+                            ship.setShipDestroyed(true);
+                        }
+                        
+                        //Checks if all part of the ship is destroyed
+                        if(ship.getShipDestroyed() == true){
+                            for (int j = 0; j < shipsDestroyed.length; j++) {
+                                if(shipsDestroyed[j] == null){
+                                    shipsDestroyed[j] = ship;
+                                    break;
+                                }
+                            }
+                        }
+
+                        break;
+                    }
+                }
+
+            }
+        }
+
+        return btnNumberisInArray;
+    }
+
+    public Ships[] getShipsDestroyed() {
+        return shipsDestroyed;
+    }
 
 }
