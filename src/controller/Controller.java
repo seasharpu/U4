@@ -28,8 +28,13 @@ public class Controller {
     }
 
     public void setupHighscore(){
-      highscore.readScoreboard();
+      highscore.countAmountPlayersOnList();
+      highscore.readNames();
+      highscore.readScores();
+      highscore.sortTheArrays();
+
       view.updateScoreboard(highscore.getArrayScores());
+
     }
 
     private void setUpShips(int chosenGameBoard) {
@@ -66,7 +71,7 @@ public class Controller {
     public void restartGame(){
       highscore.printScoreboard(nameOfThePlayer, clicks);
       Main main = new Main();
-      main.createNewController(nameOfThePlayer);
+      main.createNewController();
     }
 
     public void buttonPressed(JButton btn) {
@@ -98,7 +103,7 @@ public class Controller {
         clicks++;
         view.setClicks("Clicks: " + String.valueOf(clicks));
         view.setSunkShips("Ship sunk: " + String.valueOf(amountDestroyedShips));
-        if(amountDestroyedShips == 1){
+        if(amountDestroyedShips == 5){
           gameFinished();
         }
     }

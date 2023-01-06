@@ -21,7 +21,8 @@ public class Main {
         
         Controller theController = new Controller(nameOfThePlayer, chosenGameBoard);
     }
-    public void createNewController(String nameOfThePlayer){
+    public void createNewController(){
+        String nameOfThePlayer = JOptionPane.showInputDialog( "Player name?");
         gameBoard = JOptionPane.showInputDialog( "Choose a gameboard - 1 or 2");
         chosenGameBoard = Integer.parseInt(gameBoard);
         while((chosenGameBoard != 1) && (chosenGameBoard != 2)){
