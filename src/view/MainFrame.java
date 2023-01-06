@@ -26,6 +26,10 @@ public class MainFrame extends JFrame {
         controller.buttonPressed(btn);
     }
 
+    public void restartButtonPressed(){
+        controller.restartGame();
+    }
+
     public void setPlayerName(String playerName){
         mainPanel.getGameBoard().setPlayerName(playerName);
     }
@@ -36,5 +40,13 @@ public class MainFrame extends JFrame {
 
     public void setSunkShips(String newText){
         mainPanel.getGameBoard().setAmountShipSunk(newText);
+    }
+
+    public void updateGameBoard(boolean ok){
+        mainPanel.setGameBoardVisible(ok);
+    }
+
+    public void updateScoreboard(String[] scoreboard){
+        mainPanel.getScoreBoard().populateScoreBoardList(scoreboard);
     }
 }

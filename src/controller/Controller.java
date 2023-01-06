@@ -1,24 +1,35 @@
 package controller;
+import javax.sound.midi.MidiEvent;
 import javax.swing.JButton;
 
 import view.MainFrame;
 import model.GameManager;
 import view.GameBoard;
+import view.GameFinishedBoard;
 import view.ScoreBoard;
 import model.ShipType;
 import model.Ships;
+import model.Highscore;
 
 public class Controller {
     private MainFrame view;
     private int clicks = 0;
     private int amountDestroyedShips = 0;
-
+    private String nameOfThePlayer;
     private GameManager gameManager = new GameManager();
+    private Highscore highscore = new Highscore();
   
     public Controller(String nameOfThePlayer, int chosenGameBoard) {
       view = new MainFrame(1200, 500, this);
       view.setPlayerName(nameOfThePlayer);
       setUpShips(chosenGameBoard);
+      setupHighscore();
+      this.nameOfThePlayer = nameOfThePlayer;
+    }
+
+    public void setupHighscore(){
+      highscore.readScoreboard();
+      view.updateScoreboard(highscore.getArrayScores());
     }
 
     private void setUpShips(int chosenGameBoard) {
@@ -52,6 +63,12 @@ public class Controller {
 
     }
 
+    public void restartGame(){
+      highscore.printScoreboard(nameOfThePlayer, clicks);
+      Main main = new Main();
+      main.createNewController(nameOfThePlayer);
+    }
+
     public void buttonPressed(JButton btn) {
         btn.setEnabled(false);
         int btnNumber = Integer.parseInt(btn.getActionCommand());
@@ -81,6 +98,22 @@ public class Controller {
         clicks++;
         view.setClicks("Clicks: " + String.valueOf(clicks));
         view.setSunkShips("Ship sunk: " + String.valueOf(amountDestroyedShips));
+        if(amountDestroyedShips == 1){
+          gameFinished();
+        }
+    }
+
+    public void gameFinished(){
+      view.updateGameBoard(false);
+      GameFinishedBoard gameFinishedBoard = new GameFinishedBoard(1200, 500, clicks, nameOfThePlayer, view);
+    }
+
+    public String getNameOfThePlayer(){
+      return nameOfThePlayer;
+    }
+
+    public int getClicks(){
+      return clicks;
     }
 
 }

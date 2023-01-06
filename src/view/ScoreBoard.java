@@ -32,7 +32,8 @@ public class ScoreBoard extends JPanel{
 
         scoreBoardList = new JList<>();
         scoreBoardList.setBackground(Color.DARK_GRAY);
-        scoreBoardList.setLocation(-40, 23);
+        scoreBoardList.setForeground(Color.white);
+        scoreBoardList.setLocation(0, 23);
         scoreBoardList.setSize(width - 100, height);
         this.add(scoreBoardList);
     }

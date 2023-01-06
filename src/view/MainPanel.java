@@ -9,6 +9,7 @@ public class MainPanel extends JPanel{
     private GameBoard gameBoard;
     private ScoreBoard scoreBoard;
     private GameInformation gameInformation;
+    private GameFinishedBoard gameFinishedBoard;
 
     public MainPanel(int width, int height, MainFrame mainFrame) {
         super(null);
@@ -39,4 +40,9 @@ public class MainPanel extends JPanel{
     public void setClicks(String newText){
         gameBoard.setAmountClicks(newText);
     }
+
+    public void setGameBoardVisible(boolean ok){
+        gameBoard.setVisible(ok);
+    }
+
 }
