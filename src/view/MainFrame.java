@@ -49,4 +49,8 @@ public class MainFrame extends JFrame {
     public void updateScoreboard(String[] scoreboard){
         mainPanel.getScoreBoard().populateScoreBoardList(scoreboard);
     }
+
+    public void updateGameInformation(String[] gameInformationArray){
+        mainPanel.getGameInformation().populateGameInformationList(gameInformationArray);
+    }
 }

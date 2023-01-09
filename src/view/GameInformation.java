@@ -30,6 +30,7 @@ public class GameInformation extends JPanel{
 
         gameInformationList = new JList<>();
         gameInformationList.setBackground(Color.DARK_GRAY);
+        gameInformationList.setForeground(Color.white);
         gameInformationList.setLocation(-40, 23);
         gameInformationList.setSize(width - 100, height);
         this.add(gameInformationList);

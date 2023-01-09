@@ -18,6 +18,7 @@ public class Controller {
     private String nameOfThePlayer;
     private GameManager gameManager = new GameManager();
     private Highscore highscore = new Highscore();
+    private String[] gameInformationArray;
   
     public Controller(String nameOfThePlayer, int chosenGameBoard) {
       view = new MainFrame(1200, 500, this);
@@ -25,6 +26,7 @@ public class Controller {
       setUpShips(chosenGameBoard);
       setupHighscore();
       this.nameOfThePlayer = nameOfThePlayer;
+      this.gameInformationArray = new String[100];
     }
 
     public void setupHighscore(){
@@ -93,10 +95,25 @@ public class Controller {
           }
 
           amountDestroyedShips = amountDestroyed;
+
+          for(int i = 0; i < gameInformationArray.length; i++){
+            if(gameInformationArray[i] == null){
+              gameInformationArray[i] = "You hit a ship!";
+              view.updateGameInformation(gameInformationArray);
+              break;
+            }
+          }
         }
         else{
           //If a ship-part missed
           btn.setText("X");
+          for(int i = 0; i < gameInformationArray.length; i++){
+            if(gameInformationArray[i] == null){
+              gameInformationArray[i] = "You missed!";
+              view.updateGameInformation(gameInformationArray);
+              break;
+            }
+          }
         }
 
         //Updates the clicks variable and mainFrame
