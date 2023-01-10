@@ -4,6 +4,7 @@ public class GameManager {
     private Ships[] ships = new Ships[10];
     private Ships[] shipsDestroyed = new Ships[10];
     boolean sunkOrNot = false;
+    private String hitShip; 
 
     public GameManager(){
 
@@ -77,6 +78,7 @@ public class GameManager {
                         coordinates[i] = 0;
                         
                         ship.setShipCoordinates(coordinates);
+                        hitShip = ship.getShipName();
 
                         if(ship.isShipCoordinatesEmpty() == true){
                             ship.setShipDestroyed(true);
@@ -115,4 +117,7 @@ public class GameManager {
         sunkOrNot = false;
     }
 
+    public String getHitShipName(){
+        return hitShip;
+    }
 }

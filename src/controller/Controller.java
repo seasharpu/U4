@@ -38,7 +38,6 @@ public class Controller {
       highscore.writeToArrayScores();
 
       view.updateScoreboard(highscore.getArrayScores());
-
     }
 
     private void setUpShips(int chosenGameBoard) {
@@ -49,11 +48,11 @@ public class Controller {
         int cruiserCordinates[]  = {7,8,9,10};
         int destroyerCordinates[]  = {54,55,56,57,58};
 
-        gameManager.addBattleShip("Leon", ShipType.Battleship, battleShipCordinates);
-        gameManager.addTorpedoBoat("Eagle", ShipType.TorpedoBoat, torpedoCordinates);
-        gameManager.addSubmarine("Shark", ShipType.Submarine, submarineCordinates);
-        gameManager.addCruiser("Black Pearl", ShipType.Cruiser, cruiserCordinates);
-        gameManager.addDestroyer("Titanic", ShipType.Destroyer, destroyerCordinates);
+        gameManager.addBattleShip("Battleship", ShipType.Battleship, battleShipCordinates);
+        gameManager.addTorpedoBoat("TorpedoBoat", ShipType.TorpedoBoat, torpedoCordinates);
+        gameManager.addSubmarine("Submarine", ShipType.Submarine, submarineCordinates);
+        gameManager.addCruiser("Cruiser", ShipType.Cruiser, cruiserCordinates);
+        gameManager.addDestroyer("Destroyer", ShipType.Destroyer, destroyerCordinates);
       }
 
       if(chosenGameBoard == 2){
@@ -63,11 +62,11 @@ public class Controller {
         int torpedoCordinates[]  = {87,88,89,90};
         int cruiserCordinates[]  = {21,31,41,51,61};
 
-        gameManager.addBattleShip("Leon", ShipType.Battleship, battleShipCordinates);
-        gameManager.addTorpedoBoat("Eagle", ShipType.TorpedoBoat, torpedoCordinates);
-        gameManager.addSubmarine("Shark", ShipType.Submarine, submarineCordinates);
-        gameManager.addCruiser("Black Pearl", ShipType.Cruiser, cruiserCordinates);
-        gameManager.addDestroyer("Titanic", ShipType.Destroyer, destroyerCordinates);
+        gameManager.addBattleShip("Battleship", ShipType.Battleship, battleShipCordinates);
+        gameManager.addTorpedoBoat("TorpedoBoat", ShipType.TorpedoBoat, torpedoCordinates);
+        gameManager.addSubmarine("Submarine", ShipType.Submarine, submarineCordinates);
+        gameManager.addCruiser("Cruiser", ShipType.Cruiser, cruiserCordinates);
+        gameManager.addDestroyer("Destroyer", ShipType.Destroyer, destroyerCordinates);
       }
 
     }
@@ -99,14 +98,16 @@ public class Controller {
 
           amountDestroyedShips = amountDestroyed;
 
-
           for(int i = 0; i < gameInformationArray.length; i++){
             if(gameInformationArray[i] == null){
-              gameInformationArray[i] = "You hit a ship!";
+
+              gameInformationArray[i] = "          You hit a " + gameManager.getHitShipName() + "!";
+
               if(gameManager.getSunkOrNot() == true){
-                gameInformationArray[i+1] = "You sunk a ship!";
+                gameInformationArray[i+1] = "          You sunk the " + gameManager.getHitShipName() + "!";
                 gameManager.setSunkOrNot();
               }
+
               view.updateGameInformation(gameInformationArray);
               break;
             }
@@ -117,7 +118,7 @@ public class Controller {
           btn.setText("X");
           for(int i = 0; i < gameInformationArray.length; i++){
             if(gameInformationArray[i] == null){
-              gameInformationArray[i] = "You missed!";
+              gameInformationArray[i] = "          You missed!";
               view.updateGameInformation(gameInformationArray);
               break;
             }

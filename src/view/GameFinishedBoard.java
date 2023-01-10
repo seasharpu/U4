@@ -26,8 +26,6 @@ public class GameFinishedBoard extends JPanel{
         mainFrame.add(this);
     }
     
-
-    
     private void setUp(int clicks, String nameOfThePlayer) {
         lblTitle = new JLabel("Endgame");
         lblTitle.setLocation(75, 23);
