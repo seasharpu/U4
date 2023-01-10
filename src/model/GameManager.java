@@ -3,6 +3,7 @@ package model;
 public class GameManager {
     private Ships[] ships = new Ships[10];
     private Ships[] shipsDestroyed = new Ships[10];
+    boolean sunkOrNot = false;
 
     public GameManager(){
 
@@ -64,6 +65,7 @@ public class GameManager {
 
     public boolean checkIfButtonNumberIsInShipsArray(int btnNumber){
         boolean btnNumberisInArray = false;
+       
 
         for (Ships ship : ships) {
             if(ship != null){
@@ -78,6 +80,7 @@ public class GameManager {
 
                         if(ship.isShipCoordinatesEmpty() == true){
                             ship.setShipDestroyed(true);
+                            sunkOrNot = true;
                         }
                         
                         //Checks if all part of the ship is destroyed
@@ -102,6 +105,14 @@ public class GameManager {
 
     public Ships[] getShipsDestroyed() {
         return shipsDestroyed;
+    }
+
+    public boolean getSunkOrNot(){
+        return sunkOrNot;
+    }
+
+    public void setSunkOrNot(){
+        sunkOrNot = false;
     }
 
 }

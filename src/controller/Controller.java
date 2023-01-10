@@ -96,9 +96,14 @@ public class Controller {
 
           amountDestroyedShips = amountDestroyed;
 
+
           for(int i = 0; i < gameInformationArray.length; i++){
             if(gameInformationArray[i] == null){
               gameInformationArray[i] = "You hit a ship!";
+              if(gameManager.getSunkOrNot() == true){
+                gameInformationArray[i+1] = "You sunk a ship!";
+                gameManager.setSunkOrNot();
+              }
               view.updateGameInformation(gameInformationArray);
               break;
             }
