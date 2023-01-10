@@ -38,6 +38,11 @@ public class MainFrame extends JFrame {
         mainPanel.getGameBoard().setAmountClicks(newText);
     }
 
+    public void setShotsLeft(String newText){
+        mainPanel.getGameBoard().setAmountShots(newText);
+    }
+
+
     public void setSunkShips(String newText){
         mainPanel.getGameBoard().setAmountShipSunk(newText);
     }

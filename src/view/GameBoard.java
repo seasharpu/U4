@@ -12,6 +12,7 @@ public class GameBoard extends JPanel{
 
     private JLabel titlePlayerName;
     private JLabel titleTotalClicks;
+    private JLabel titleShotsLeft;
     private JLabel titleShipSunk;
 
     public GameBoard(int width, int height, MainFrame mainFrame) {
@@ -32,17 +33,21 @@ public class GameBoard extends JPanel{
         titlePlayerName.setSize(width/2, 20);
         this.add(titlePlayerName);
 
+        titleShotsLeft = new JLabel("Shots left: 15");
+        titleShotsLeft.setLocation(170, 435);
+        titleShotsLeft.setSize(width/2, 20);
+        this.add(titleShotsLeft);
+
         titleShipSunk = new JLabel("Ships sunk: ");
-        titleShipSunk.setLocation(250, 435);
+        titleShipSunk.setLocation(360, 435);
         titleShipSunk.setSize(width/2, 20);
         this.add(titleShipSunk);
 
         //creates the label for amount clicks
         titleTotalClicks = new JLabel("Clicks: ");
-        titleTotalClicks.setLocation(515, 435);
+        titleTotalClicks.setLocation(530, 435);
         titleTotalClicks.setSize(width/2, 20);
         this.add(titleTotalClicks);
-
  
         //Creates the panel for the shipsButtons
         btnsPanel = new JPanel();
@@ -81,6 +86,10 @@ public class GameBoard extends JPanel{
 
     protected void setAmountClicks(String labelText){
         titleTotalClicks.setText(labelText);
+    }
+
+    protected void setAmountShots(String labelText){
+        titleShotsLeft.setText(labelText);
     }
 
     protected void setAmountShipSunk(String labelText){

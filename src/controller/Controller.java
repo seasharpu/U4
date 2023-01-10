@@ -13,6 +13,7 @@ import model.Highscore;
 
 public class Controller {
     private MainFrame view;
+    private int shotsRequired = 15;
     private int clicks = 0;
     private int amountDestroyedShips = 0;
     private String nameOfThePlayer;
@@ -34,6 +35,7 @@ public class Controller {
       highscore.readNames();
       highscore.readScores();
       highscore.sortTheArrays();
+      highscore.writeToArrayScores();
 
       view.updateScoreboard(highscore.getArrayScores());
 
@@ -84,6 +86,7 @@ public class Controller {
         if(gameManager.checkIfButtonNumberIsInShipsArray(btnNumber) == true){
           //If a ship-part got hit
           btn.setVisible(false);
+          shotsRequired--;
 
           int amountDestroyed = 0;
           //Gets ships destroyed
@@ -124,6 +127,7 @@ public class Controller {
         //Updates the clicks variable and mainFrame
         clicks++;
         view.setClicks("Clicks: " + String.valueOf(clicks));
+        view.setShotsLeft("Shots left: " + String.valueOf(shotsRequired));
         view.setSunkShips("Ship sunk: " + String.valueOf(amountDestroyedShips));
         if(amountDestroyedShips == 5){
           gameFinished();

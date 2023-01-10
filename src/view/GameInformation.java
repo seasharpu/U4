@@ -3,6 +3,8 @@ package view;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 import java.awt.Color;
 
 public class GameInformation extends JPanel{
@@ -29,11 +31,13 @@ public class GameInformation extends JPanel{
         this.add(lblTitle);
 
         gameInformationList = new JList<>();
-        gameInformationList.setBackground(Color.DARK_GRAY);
-        gameInformationList.setForeground(Color.white);
-        gameInformationList.setLocation(-40, 23);
-        gameInformationList.setSize(width - 100, height);
-        this.add(gameInformationList);
+        JScrollPane scrollPane = new JScrollPane(gameInformationList);
+
+        scrollPane.setBackground(Color.DARK_GRAY);
+        scrollPane.setForeground(Color.white);
+        scrollPane.setLocation(-40, 23);
+        scrollPane.setSize(width - 100, height);
+        this.add(scrollPane);
     }
 
     protected void populateGameInformationList(String[] gameInformationArray){

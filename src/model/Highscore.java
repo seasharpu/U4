@@ -116,10 +116,15 @@ public class Highscore {
         }
       }   
     } 
+  
+  }
 
+  public void writeToArrayScores(){
     for(int i = 0; i < amountPlayers; i++){
-      if(arrayScores[i] == null){
-        arrayScores[i] = names[i] + ", " + scores[i];
+      if(i <= 9){
+        if(arrayScores[i] == null){
+          arrayScores[i] = names[i] + ", " + scores[i];
+        }
       }
     }
   }
