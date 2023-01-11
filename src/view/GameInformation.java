@@ -7,15 +7,15 @@ import javax.swing.JScrollPane;
 
 import java.awt.Color;
 
-public class GameInformation extends JPanel{
+public class GameInformation extends JPanel {
     private MainFrame mainFrame;
     private int width;
     private int height;
     private JLabel lblTitle;
 
     private JList<Object> gameInformationList;
-    
-    public GameInformation(int width, int height, MainFrame mainFrame){
+
+    public GameInformation(int width, int height, MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         this.setLayout(null);
         this.width = width;
@@ -24,10 +24,14 @@ public class GameInformation extends JPanel{
         setLocation(width, 220);
         setUp();
     }
+
+    /**
+     * Sets up the gameinformation GUI panel
+     */
     private void setUp() {
         lblTitle = new JLabel("Game Information");
         lblTitle.setLocation(210, 0);
-        lblTitle.setSize((width / 2)-100, 20);
+        lblTitle.setSize((width / 2) - 100, 20);
         this.add(lblTitle);
 
         gameInformationList = new JList<>();
@@ -40,7 +44,10 @@ public class GameInformation extends JPanel{
         this.add(scrollPane);
     }
 
-    protected void populateGameInformationList(String[] gameInformationArray){
+    /**
+     * Updates the gameinformation panel/jlist with new information
+     */
+    protected void populateGameInformationList(String[] gameInformationArray) {
         gameInformationList.setListData(gameInformationArray);
     }
 
