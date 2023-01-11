@@ -7,6 +7,11 @@ import java.io.File; // Import the File class
 import java.io.FileNotFoundException; // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 
+
+/**
+ * Class for highscore logic, like the printing of name and scores to the file and reading from the file. 
+ * @author Mehmet, Alexander
+ */
 public class Highscore {
   private String[] arrayScores = new String[10];
   private String[] names;

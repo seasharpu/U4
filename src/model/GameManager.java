@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * Class that handles the placing of ships on the board, button logic and the array for the ships. 
+ * @author Mehmet, Alexander
+ */
 public class GameManager {
     private Ships[] ships = new Ships[10];
     private Ships[] shipsDestroyed = new Ships[10];

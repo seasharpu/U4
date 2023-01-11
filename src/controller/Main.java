@@ -5,6 +5,11 @@ import javax.swing.JOptionPane;
 import model.Cruiser;
 import model.ShipType;
 
+/**
+ * Class that starts the program.
+ * 
+ * @author Mehmet, Alexander
+ */
 public class Main {
     private Controller theController;
     private String nameOfThePlayer;
@@ -23,6 +28,10 @@ public class Main {
         Controller theController = new Controller(nameOfThePlayer, chosenGameBoard);
     }
 
+    /**
+     * Method that creates a new controller for a new round of the game
+     * @author Mehmet, Alexander
+     */
     public void createNewController() {
         String nameOfThePlayer = JOptionPane.showInputDialog("Player name?");
         gameBoard = JOptionPane.showInputDialog("Choose a gameboard - 1 or 2");

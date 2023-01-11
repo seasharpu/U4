@@ -5,6 +5,10 @@ import javax.swing.JFrame;
 
 import controller.Controller;
 
+/**
+ * Class for mainframe where the main panel is placed on.
+ * @author Mehmet, Alexander
+ */
 public class MainFrame extends JFrame {
 
     private MainPanel mainPanel;

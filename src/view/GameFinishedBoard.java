@@ -7,6 +7,10 @@ import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * Class for game ending panel where you can restart the game.
+ * @author Mehmet, Alexander
+ */
 public class GameFinishedBoard extends JPanel {
     private MainFrame mainFrame;
     private int width;

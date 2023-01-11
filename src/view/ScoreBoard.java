@@ -6,6 +6,10 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
+/**
+ * Class for scoreboard panel where the highscore list is displayed.
+ * @author Mehmet, Alexander
+ */
 public class ScoreBoard extends JPanel {
     private MainFrame mainFrame;
     private int width;

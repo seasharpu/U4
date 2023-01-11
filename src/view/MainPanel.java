@@ -5,6 +5,11 @@ import java.awt.Component;
 
 import javax.swing.JPanel;
 
+
+/**
+ * Class for mainpanel where all panels are placed on.
+ * @author Mehmet, Alexander
+ */
 public class MainPanel extends JPanel {
     private GameBoard gameBoard;
     private ScoreBoard scoreBoard;
