@@ -7,6 +7,10 @@ import javax.swing.JScrollPane;
 
 import java.awt.Color;
 
+/**
+ * Class for game information panel where information will be displayed like if you sunk a ship. 
+ * @author Mehmet, Alexander
+ */
 public class GameInformation extends JPanel {
     private MainFrame mainFrame;
     private int width;

@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * An abstract superclass for handling ship logic. 
+ * @author Mehmet, Alexander
+ */
 public abstract class Ships extends GameManager {
     private String shipName;
     private ShipType shipType;

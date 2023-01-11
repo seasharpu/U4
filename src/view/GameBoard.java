@@ -3,6 +3,11 @@ package view;
 import java.awt.*;
 import javax.swing.*;
 
+
+/**
+ * Class for gameboard panel where all the clicking is done.
+ * @author Mehmet, Alexander
+ */
 public class GameBoard extends JPanel {
     private int width;
     private int height;
@@ -25,6 +30,7 @@ public class GameBoard extends JPanel {
         setUp();
     }
 
+    
     private void setUp() {
 
         // creates the label for player name
