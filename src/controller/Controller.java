@@ -96,6 +96,7 @@ public class Controller {
    */
   public void restartGame() {
     highscore.printScoreboard(nameOfThePlayer, clicks);
+    view.setVisible(false);
     Main main = new Main();
     main.createNewController();
   }
